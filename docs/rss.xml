@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by Juliano Lima]]></title><description><![CDATA[Software Engineer, Computer Scientist, Cartoons Analyst, and Amateur Commentator Football.]]></description><link>https://julianogtz.github.io/my-personal-blog/</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 11 Mar 2021 15:23:54 GMT</lastBuildDate><item><title><![CDATA[As estruturas de dados por trás do git]]></title><description><![CDATA[Como o Git salva nossos arquivos? Em quais estruturas de dados os nossos arquivos são persistidos? Vamos entender melhor como o Git dispõe seus dados explorando as estruturas de dados existentes por baixo do capô]]></description><link>https://julianogtz.github.io/my-personal-blog//posts/as-estruturas-de-dados-por-tras-do-git</link><guid isPermaLink="false">https://julianogtz.github.io/my-personal-blog//posts/as-estruturas-de-dados-por-tras-do-git</guid><pubDate>Mon, 02 Nov 2020 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-personal-blog/static/ef7bc30d35466f4037e9fd821d6e7efe/5a190/git-database-flow.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 74.16666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEOElEQVQ4y01Ua1CUZRQ+y01W9iIXkZKLgiVGNelM5YyWTdPkNBbGmFnjoAUMYVDolDmaArHcFPbKLnv/dlkWFgz8oY0NoTkCFmy7KwjILg58u0t75WKM2Q8nfDvfNl1+PHO+2/vMOc9zng8cXRngMKeCTQsRWCkAKCYQpfgWdunNsEGqAahtAcnYFMzMuN5203On9Copu+7cSbbkgoAtaqr5P+IBCQuRsNSmgxJEGRK+D5UE2Iqe5N1UZ+lGmaY4SawqT2sU5RHy52ZfILBnePBGTGlhAUshbooSNVYjaqJaGqoACdcy3RGHZTNxmJOJoyudWI3xhKghaauI+niTXEueUxlJmlRDMqUqEVlZfG/W4xFMT03k8gFiei3tvE6jmmMxaTnq1ha2sLGaBzYKztiNMbVWI7/ebuLVWw0xx4kFojcK9dmJojZBVquuZp1IKTjc3Xdg0T13wuP11IRCwV3hsA8CARoIWUWQCGTNdevBrkfdDFx8AHDnYg6MGtcCQS2zm3UQfV4G6ajhW529zAEu7Z47+Ou8p3Bi/PbLHo9zh5uePnT/fqDgwYOFg1g3fFlRwofxvhfB2r0TsktI3IQRYJSKBTIEkKW+BPnmi/C8uh1YTTL4uv8aBD003J2ajHSDZHdcznFC09PE758ji4u+CrQzGhydaacd5vW1t7RcqY1iNf5CsY4z3WYpuzN26joEOQr9N+xmRe2nl78/tOClBTiy4t6M651Q0H1kacmnQTJxOORV4vWO/W+8koCET5LbPdvQlBQ0ZxOxtnMIUULyMyKqmDFlu8ZEnkBTclq1UuzsWdrvz199TFKKDx+BlZVwEj7jMzBopSBsqEoCmx6OIspG9PGfoUHlVor1AXAIxAsNqTxhWxmuzCeJIlX5dhX1QoiePeb1epp/Gh7K8XpcvRPjVuJxO38P+Gni9c6U48jxYFOhbgjyG8CYgdEwOmIQXMCbejHguJAsVsNWiRIeLYZgcupuRMNg0K3FcUN+36wTCX1YP8RTLJjsL4LR776A0q9ucOeu5sGIMQkeyQF2t3ZCY/91KOu7AikSNbyEqSHTYzBkHYWrVy7BrcEfoLKsBHp7OmB4cABsozdBKT3PBoclW44LrRuheBZ7e0I77mETMUD0FplpG0aPylUa1ClilTlbrnsTO4u76bCn/jhwLfaeazx/zPFzdTjsPYmGnMW1eTrisr0jkaDTxMHUrkwmKat/J0V/NLNVS3BtSKpETV4z9ZjI8sI597zX5HJO75v3zlhnZ6eI2+2MrM3ysr+CkQIwv3sR76Ix+VgLMMuvw2l8Ie7g8ISK/XEtbfueEsk/elUsy9tSVMTox7o+cBkePlzag11VLizMlzJkq4//yIh0iCT/4Z+/zedIKLEAX9gGHDRljVgDwapja85Wn+IKzpxIkLXUcfGrfyPHIDc9OVYubuD/BVXRc0wXWTb5AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/my-personal-blog/static/ef7bc30d35466f4037e9fd821d6e7efe/8ac56/git-database-flow.webp 240w,
+/my-personal-blog/static/ef7bc30d35466f4037e9fd821d6e7efe/d3be9/git-database-flow.webp 480w,
+/my-personal-blog/static/ef7bc30d35466f4037e9fd821d6e7efe/d00b9/git-database-flow.webp 800w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/my-personal-blog/static/ef7bc30d35466f4037e9fd821d6e7efe/8ff5a/git-database-flow.png 240w,
+/my-personal-blog/static/ef7bc30d35466f4037e9fd821d6e7efe/e85cb/git-database-flow.png 480w,
+/my-personal-blog/static/ef7bc30d35466f4037e9fd821d6e7efe/5a190/git-database-flow.png 800w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/my-personal-blog/static/ef7bc30d35466f4037e9fd821d6e7efe/5a190/git-database-flow.png&quot;
+            alt=&quot;Fluxo do Git. - Fonte: Documentação do Git&quot;
+            title=&quot;Fluxo do Git. - Fonte: Documentação do Git&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;em&gt;Fonte: &lt;a href=&quot;https://git-scm.com/book/en/v2/Git-Internals-Git-Objects&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Documentação do Git&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Você já se perguntou como o Git persiste nossos arquivos? Como ele consegue lidar com tantos arquivos de forma distribuída? Embora seja praticamente invisível essa persistência possui muitas particularidades interessantes pra quem gosta de &lt;strong&gt;estrutura de dados&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos entender como funciona?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://dev-to-uploads.s3.amazonaws.com/i/4k5ferlxtghuylh63qrk.gif&quot; alt=&quot;Alt Text&quot;&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;blockquote&gt;
+		&lt;p&gt;Se quiser seguir a leitura interativamente executando os mesmos comandos que utilizei ao longo do post basta clonar o repositório abaixo em um terminal que tenha Git instalado&lt;/p&gt;
+	&lt;/blockquote&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git clone https://github.com/JulianoGTZ/how-git-works.git&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;estruturas-associativas&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#estruturas-associativas&quot; aria-label=&quot;estruturas associativas permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Estruturas associativas&lt;/h3&gt;
+&lt;p&gt;Segunda a própria documentação o Git é um “content-addressable filesystem”, o que na prática se traduz em um clássica estrutura associativa de chave e valor.&lt;/p&gt;
+&lt;p&gt;Na ciência da computação existem muitas estruturas associativas como: arrays associativos, mapas, tabela de símbolos ou dicionários. Conceitualmente estamos falando de uma estrutura de dados abstrata composta de pares de chave e valor, onde uma determinada chave referencia um valor pelo menos uma vez. &lt;/p&gt;
+&lt;p&gt;Embora a matemática seja parte integrante da computação, o termo &lt;strong&gt;associação não tem nada a ver com a propriedade de associação da matemática ou de lógica propositiva&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Metaforicamente é como se o Git conseguisse buscar um elemento na sua base de dados similar a forma que buscamos o significado de uma palavra em um dicionário. &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Mas o que git associa? por que termos ele busca?&lt;/strong&gt; &lt;/p&gt;
+&lt;h3 id=&quot;hashes-everywhere&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#hashes-everywhere&quot; aria-label=&quot;hashes everywhere permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Hashes everywhere&lt;/h3&gt;
+&lt;p&gt;O git se guia por hashes. Podemos ver isso ao executar um &lt;strong&gt;git-log&lt;/strong&gt; e ver vários deles atribuídos a commits.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 906px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-personal-blog/static/77f71568062d8e75f39b050dfccc31ab/a20ae/hashes-everywhere.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 129.99999999999997%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAaABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAIBAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAv/aAAwDAQACEAMQAAAB82KiksHfmkwH/8QAGBAAAgMAAAAAAAAAAAAAAAAAAhAAASD/2gAIAQEAAQUChO2Wf//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABcQAQEBAQAAAAAAAAAAAAAAAEEAECD/2gAIAQEABj8CZwjHr//EAB0QAAEEAgMAAAAAAAAAAAAAABEAARAhQYGR0eH/2gAIAQEAAT8hsIXqKCDjhFjottsId3DXP//aAAwDAQACAAMAAAAQhOR+/8QAGBEAAgMAAAAAAAAAAAAAAAAAARARITH/2gAIAQMBAT8QOKaX/8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQIBAT8QIf/EAB0QAQACAgMBAQAAAAAAAAAAAAEAERAhMYGRYbH/2gAIAQEAAT8QNNeUiCC9kteWcF+1mz9K4NNPQstZbiCII7lrtVfuP//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/my-personal-blog/static/77f71568062d8e75f39b050dfccc31ab/8ac56/hashes-everywhere.webp 240w,
+/my-personal-blog/static/77f71568062d8e75f39b050dfccc31ab/d3be9/hashes-everywhere.webp 480w,
+/my-personal-blog/static/77f71568062d8e75f39b050dfccc31ab/45005/hashes-everywhere.webp 906w&quot;
+              sizes=&quot;(max-width: 906px) 100vw, 906px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/my-personal-blog/static/77f71568062d8e75f39b050dfccc31ab/09b79/hashes-everywhere.jpg 240w,
+/my-personal-blog/static/77f71568062d8e75f39b050dfccc31ab/7cc5e/hashes-everywhere.jpg 480w,
+/my-personal-blog/static/77f71568062d8e75f39b050dfccc31ab/a20ae/hashes-everywhere.jpg 906w&quot;
+            sizes=&quot;(max-width: 906px) 100vw, 906px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/my-personal-blog/static/77f71568062d8e75f39b050dfccc31ab/a20ae/hashes-everywhere.jpg&quot;
+            alt=&quot;Figura do Git Log com muitos commits&quot;
+            title=&quot;Figura do Git Log com muitos commits&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Conceituando&lt;/strong&gt;: Um hash é uma string de comprimento fixo calculado por algum algoritmo especialista nisso(como MD5, SHA1) onde o objetivo é ter um resultado único respectivo aos parâmetros de entrada.&lt;/p&gt;
+&lt;p&gt;No caso do git essas chaves podem ser geradas a partir de qualquer sequência de bytes oriundo de qualquer tipo de arquivo. Para cada uma dessas sequências é calculada uma chave do tipo &lt;a href=&quot;https://en.wikipedia.org/wiki/SHA-1&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;SHA1&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;A gente pode brincar com esse algoritmo de geração de chaves. Basta executar em um terminal o seguinte comando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Artigo da hora&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; hash-object --stdin
+
+$ 43946addf6c6218daaacf8ed7e05af17724262dc&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E o resultado é sempre o mesmo:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;43946addf6c6218daaacf8ed7e05af17724262dc&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Precisei utilizar o &lt;em&gt;echo&lt;/em&gt;, &lt;em&gt;stdin&lt;/em&gt; e o &lt;em&gt;|&lt;/em&gt; porque estamos somente utilizando o algoritmo, mas não operando sobre uma sequência de bytes já conhecida pelo git, como um arquivo commitado. Dessa forma estamos enviando uma stream de bytes para o git &lt;strong&gt;hash-object&lt;/strong&gt; criptografar&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;O resultado da função é determínistico, ou seja, dado o mesmo input a função retorna sempre o mesmo resultado. Esse é um dos mecanismo que ajuda a garantir que cada mudança no seu repositório mapeada pelo git seja respectiva ao que de fato foi alterado.&lt;/p&gt;
+&lt;h2 id=&quot;commits&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#commits&quot; aria-label=&quot;commits permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Commits&lt;/h2&gt;
+&lt;p&gt;Para falarmos sobre a próxima estrutura de dados vamos precisar entender um pouco mais sobre a estrutura dos commits: &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 900px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-personal-blog/static/e768da5e60c08e47e7dded3745f15356/1cfc2/commit-update-readme.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 15%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAsklEQVQI11XKyw7BUBSF4T4FabUlqYjSo7eTtBynqMYtEiNz74CJePdflQGDL2vtnWUs1YazLLirkltRcddrrvOSq654rHc8q33zexQlF5ER6wNDoRFqgR/kTAdTipFC1/rdBCORezwvJworJqIkGK+QctfI8iMzdcIfanquxDZDrJZostOefG4rwrRCzLo7nQij5ySk6YYgWJLKLX0vw64Hjh01g1+uHeM68X/Wul/v/gJ9/18QQgrsXwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/my-personal-blog/static/e768da5e60c08e47e7dded3745f15356/8ac56/commit-update-readme.webp 240w,
+/my-personal-blog/static/e768da5e60c08e47e7dded3745f15356/d3be9/commit-update-readme.webp 480w,
+/my-personal-blog/static/e768da5e60c08e47e7dded3745f15356/131f1/commit-update-readme.webp 900w&quot;
+              sizes=&quot;(max-width: 900px) 100vw, 900px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/my-personal-blog/static/e768da5e60c08e47e7dded3745f15356/8ff5a/commit-update-readme.png 240w,
+/my-personal-blog/static/e768da5e60c08e47e7dded3745f15356/e85cb/commit-update-readme.png 480w,
+/my-personal-blog/static/e768da5e60c08e47e7dded3745f15356/1cfc2/commit-update-readme.png 900w&quot;
+            sizes=&quot;(max-width: 900px) 100vw, 900px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/my-personal-blog/static/e768da5e60c08e47e7dded3745f15356/1cfc2/commit-update-readme.png&quot;
+            alt=&quot;Commit de atualização do readme&quot;
+            title=&quot;Commit de atualização do readme&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Com o hash de um commit em mãos podemos utilizar uma função para ler o seu conteúdo: a função &lt;strong&gt;cat-file&lt;/strong&gt;. Basta utiliza-lá passando &lt;strong&gt;-p&lt;/strong&gt;(print) e o hash que observamos como parâmetros: &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git cat-file -p 679b79c84959ea166b1fe91b048643a0dd8bd0b2&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Executando o comando vemos as seguintes informações:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 698px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-personal-blog/static/f1f866e4aa6e3430ba2d567d4297e9f4/487bb/git-commit-update-readme-detailed.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 21.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAzklEQVQY012P2Q6CQAxF+Q1F4pMaGQOIG6AOyI6giVvcX/z/f7jOVBOXh6btaW/aqzjeCsNxAX+xQ5ydEedn8GALLvogOsAP94iyE7EZ3yBMjjQzzQhqzUCjZqJR/4SSV3exvIPjVkjyC4moF4dkzsob8WrzwEIckExGWlwRhK9ePiSPt1ouFKsfw7QidLtzdNoe+nYCpnNiuszik5EQjCdLeLM1ej0fhhGCMY6JUxK3Bykxd7qCIpcZ80ksB03NhqZav/G288/J5rdlUT8BqsaEKMXCiwsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/my-personal-blog/static/f1f866e4aa6e3430ba2d567d4297e9f4/8ac56/git-commit-update-readme-detailed.webp 240w,
+/my-personal-blog/static/f1f866e4aa6e3430ba2d567d4297e9f4/d3be9/git-commit-update-readme-detailed.webp 480w,
+/my-personal-blog/static/f1f866e4aa6e3430ba2d567d4297e9f4/d1b7f/git-commit-update-readme-detailed.webp 698w&quot;
+              sizes=&quot;(max-width: 698px) 100vw, 698px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/my-personal-blog/static/f1f866e4aa6e3430ba2d567d4297e9f4/8ff5a/git-commit-update-readme-detailed.png 240w,
+/my-personal-blog/static/f1f866e4aa6e3430ba2d567d4297e9f4/e85cb/git-commit-update-readme-detailed.png 480w,
+/my-personal-blog/static/f1f866e4aa6e3430ba2d567d4297e9f4/487bb/git-commit-update-readme-detailed.png 698w&quot;
+            sizes=&quot;(max-width: 698px) 100vw, 698px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/my-personal-blog/static/f1f866e4aa6e3430ba2d567d4297e9f4/487bb/git-commit-update-readme-detailed.png&quot;
+            alt=&quot;Detalhes do commit de atualização do readme&quot;
+            title=&quot;Detalhes do commit de atualização do readme&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;tree&lt;/strong&gt;: O hash respectivo à estrutura de diretórios e arquivos do repositório(&lt;em&gt;Mais detalhes abaixo&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;parent&lt;/strong&gt;: O hash do commit anterior à esse commit.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;author&lt;/strong&gt;: O autor do commit(Nesse caso, &lt;strong&gt;sou eu&lt;/strong&gt;) e algumas informações de timestamp.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;commiter&lt;/strong&gt;: O commiter é quem de fato fez o merge de um commit específico. Exemplificando: se você fizer um pull-request para um projeto e um dos membros principais mergeá-lo, vocês dois receberão crédito - você como autor e o membro principal como committer. Também temos informações de timestamp aqui.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Update Readme&lt;/strong&gt;: A mensagem do commit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Podemos conceituar que o commit é um &lt;code class=&quot;language-text&quot;&gt;snapshot&lt;/code&gt; da atual configuração de todos os arquivos indexados do repositório. Quando digo indexado é tudo que está versionado previamente ou o que passou a ser versionado após o commit.&lt;/p&gt;
+&lt;p&gt;Esse retrato fiel do repositório está no atributo &lt;code class=&quot;language-text&quot;&gt;tree&lt;/code&gt; do commit. E o que é &lt;code class=&quot;language-text&quot;&gt;tree&lt;/code&gt;?&lt;/p&gt;
+&lt;h3 id=&quot;tree&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#tree&quot; aria-label=&quot;tree permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Tree&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 719px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-personal-blog/static/a5c417e304a162b076d0de5db4adf49d/073e9/tree-highlighted-in-commit-update-readme.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 20.416666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA7ElEQVQY002PTW+CQBRF+ReNorE7q4KltaBIlKFBRNAo1tjSDxfd1Da24f9vTmewJF3c3PfOnZfM1Rx3yWyccox2FJsDRXbgK3nkM95zSnO+V88U6zeO8x2nZc6P1IfMzCuP2oVBo9anUb9Gl96UroXznImf4bops+gJX87+3y6CLfHihSR9ZZ29IyQXYksQPBBJHoR7RuMV3nTDUH6s1bxFM80AywrpdCa02x7WzXlWvNfzMfv3DOwYe5jgjNIyM2RmmAJHsjuZGYbAdhZ0u1M0BdWxeqjCy9agrNDUrbPqVrlXqnhVU/9XWfkvYCCGLmBBPdcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/my-personal-blog/static/a5c417e304a162b076d0de5db4adf49d/8ac56/tree-highlighted-in-commit-update-readme.webp 240w,
+/my-personal-blog/static/a5c417e304a162b076d0de5db4adf49d/d3be9/tree-highlighted-in-commit-update-readme.webp 480w,
+/my-personal-blog/static/a5c417e304a162b076d0de5db4adf49d/05ca6/tree-highlighted-in-commit-update-readme.webp 719w&quot;
+              sizes=&quot;(max-width: 719px) 100vw, 719px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/my-personal-blog/static/a5c417e304a162b076d0de5db4adf49d/8ff5a/tree-highlighted-in-commit-update-readme.png 240w,
+/my-personal-blog/static/a5c417e304a162b076d0de5db4adf49d/e85cb/tree-highlighted-in-commit-update-readme.png 480w,
+/my-personal-blog/static/a5c417e304a162b076d0de5db4adf49d/073e9/tree-highlighted-in-commit-update-readme.png 719w&quot;
+            sizes=&quot;(max-width: 719px) 100vw, 719px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/my-personal-blog/static/a5c417e304a162b076d0de5db4adf49d/073e9/tree-highlighted-in-commit-update-readme.png&quot;
+            alt=&quot;Atributo tree destacado nos detalhes do commit&quot;
+            title=&quot;Atributo tree destacado nos detalhes do commit&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Não muito longe da tradução, se trata de uma árvore de referências. Computacionalmente estamos falando de uma estrutura de dados com diferentes ligações entre nós de informações, mas que diferente de uma estrutura linear como um array ou uma lista temos profundidade na navegabilidade. &lt;/p&gt;
+&lt;p&gt;Agora que já sabemos como ver a informação dentre um hash do Git, basta executarmos o seguinte comando:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git cat-file -p 59d80c6ce2b65acdb308058b2b0c97a4358df8f6&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;E temos como resultado:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 724px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-personal-blog/static/4b4571f9c0328e357b2ff866773ac733/a242d/commit-tree-content.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 6.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAAsTAAALEwEAmpwYAAAASElEQVQI12Nwdov47+ga9j/SOvC/r3XAf2uHoP82dgH/be0D/zs4h/63cwgGs+2dQv47uoSB2TA+SJ28nPF/W6AeEF9Hx+E/AKz4I9ap6wX0AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/my-personal-blog/static/4b4571f9c0328e357b2ff866773ac733/8ac56/commit-tree-content.webp 240w,
+/my-personal-blog/static/4b4571f9c0328e357b2ff866773ac733/d3be9/commit-tree-content.webp 480w,
+/my-personal-blog/static/4b4571f9c0328e357b2ff866773ac733/79561/commit-tree-content.webp 724w&quot;
+              sizes=&quot;(max-width: 724px) 100vw, 724px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/my-personal-blog/static/4b4571f9c0328e357b2ff866773ac733/8ff5a/commit-tree-content.png 240w,
+/my-personal-blog/static/4b4571f9c0328e357b2ff866773ac733/e85cb/commit-tree-content.png 480w,
+/my-personal-blog/static/4b4571f9c0328e357b2ff866773ac733/a242d/commit-tree-content.png 724w&quot;
+            sizes=&quot;(max-width: 724px) 100vw, 724px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/my-personal-blog/static/4b4571f9c0328e357b2ff866773ac733/a242d/commit-tree-content.png&quot;
+            alt=&quot;Resultado do comando executado acima&quot;
+            title=&quot;Resultado do comando executado acima&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;O resultado embora aparentemente não diga muita coisa está representando exatamente a estrutura do repositório que eu estou explorando como exemplo:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 913px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-personal-blog/static/85afa3e257b2adde6ffcdc957d2cdedd/93c35/image-repository.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 81.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDAQX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHtPKhowf/EABoQAQEAAgMAAAAAAAAAAAAAAAIAARESITH/2gAIAQEAAQUC6N7akMKB4m//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAYEAACAwAAAAAAAAAAAAAAAAAQIQABEf/aAAgBAQAGPwJlzKH/xAAZEAEAAwEBAAAAAAAAAAAAAAABABEhEDH/2gAIAQEAAT8hX2BeEKFmkrMIXAPIOf/aAAwDAQACAAMAAAAQwN//xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAwEBPxCq/8QAFREBAQAAAAAAAAAAAAAAAAAAECH/2gAIAQIBAT8Qp//EABwQAQACAgMBAAAAAAAAAAAAAAEAESExUWHhkf/aAAgBAQABPxAALlkrLXkJUOSos+S9eFvbuWjjoHL9Yds//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/my-personal-blog/static/85afa3e257b2adde6ffcdc957d2cdedd/8ac56/image-repository.webp 240w,
+/my-personal-blog/static/85afa3e257b2adde6ffcdc957d2cdedd/d3be9/image-repository.webp 480w,
+/my-personal-blog/static/85afa3e257b2adde6ffcdc957d2cdedd/5ffe7/image-repository.webp 913w&quot;
+              sizes=&quot;(max-width: 913px) 100vw, 913px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/my-personal-blog/static/85afa3e257b2adde6ffcdc957d2cdedd/09b79/image-repository.jpg 240w,
+/my-personal-blog/static/85afa3e257b2adde6ffcdc957d2cdedd/7cc5e/image-repository.jpg 480w,
+/my-personal-blog/static/85afa3e257b2adde6ffcdc957d2cdedd/93c35/image-repository.jpg 913w&quot;
+            sizes=&quot;(max-width: 913px) 100vw, 913px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/my-personal-blog/static/85afa3e257b2adde6ffcdc957d2cdedd/93c35/image-repository.jpg&quot;
+            alt=&quot;Repositório&quot;
+            title=&quot;Repositório&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;A árvore de versionamento tem dois possíveis tipos de valores armazenados:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Blob&lt;/strong&gt;: é qualquer arquivo binário do repositório. No caso do exemplo que usei acima é o &lt;strong&gt;README.md&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tree&lt;/strong&gt;: Um diretório. Na prática é uma árvore que pode ter várias sub-pastas e arquivos dentro.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A figura abaixo representa exatamente a estrutura de pastas e arquivos do repositório.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-personal-blog/static/a211672f7153d7e8d404aba9d62ce869/e5ca1/how-git-works-tree.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 76.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACCklEQVQ4y41TPW8TQRC9f0UDEn8DGiQkCkRNQWOBRI0oiBQaCgRCaWkjIVCSwgTHJJYI+Tj7fN/ft3u7aycW6HGzp7VCdAYXTze3O/v2zcxbi3MOxhlm8gKn3iE2vt3HxsE9bH59iDSPIYQE5RDquv4vrDaZCOc490fYHD7Ay/5dvN5/hLxMl4SUvA6pZRKFEMjSHD9/nMF1fARejCzPGvWVBl26DqllyMqyhOu6CMMAUgqkWQrPCSDKOS7VbygxW08hYwy+78O2bTiOg6Io9IbgEl9OtvBu0MOH4TMcOjuYy0vd738SVlWF8XiMIAg0PM+DaBTWlcSb/cfo7d3Ek883sH38FosZULFyOSRe8+6SkyRZgkpvNwXc+Bwn/hAjuw8/dnRr2n6uHpIeCiUamESCkjNcqAVUPYc7DlEkrOnnL4haruyntZR/BXqT17pfNN2yKvDx6BXeH/Sw9f25tpdqbMY7+mmtaq4hJ9VFmePF3h30dm/h6c5tDOxPzYAWuvzrpVvXSa6SGTDGcTodYXC8i6OzfuPPBEqpv3JNbHUpo6+UEuSA6XSqJ18VDO7ERxS0wwvDsBlgpfOoCnOuUyERmUNRFOl1MrrrNcaP2rXJZKLtRnGWZd0KaYFuNJ4kkMI4jrVKuoBiIqNXRTERUkwPpFMhyU/TVL8eIqRk8iaR0b/5mn0CkRqOPxT7XIHCL03uAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/my-personal-blog/static/a211672f7153d7e8d404aba9d62ce869/8ac56/how-git-works-tree.webp 240w,
+/my-personal-blog/static/a211672f7153d7e8d404aba9d62ce869/d3be9/how-git-works-tree.webp 480w,
+/my-personal-blog/static/a211672f7153d7e8d404aba9d62ce869/e46b2/how-git-works-tree.webp 960w,
+/my-personal-blog/static/a211672f7153d7e8d404aba9d62ce869/abf82/how-git-works-tree.webp 1332w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/my-personal-blog/static/a211672f7153d7e8d404aba9d62ce869/8ff5a/how-git-works-tree.png 240w,
+/my-personal-blog/static/a211672f7153d7e8d404aba9d62ce869/e85cb/how-git-works-tree.png 480w,
+/my-personal-blog/static/a211672f7153d7e8d404aba9d62ce869/d9199/how-git-works-tree.png 960w,
+/my-personal-blog/static/a211672f7153d7e8d404aba9d62ce869/e5ca1/how-git-works-tree.png 1332w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/my-personal-blog/static/a211672f7153d7e8d404aba9d62ce869/d9199/how-git-works-tree.png&quot;
+            alt=&quot;Alt Text&quot;
+            title=&quot;Alt Text&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Podemos observar que o &lt;strong&gt;nó-folha&lt;/strong&gt; (o nó na extremidade da árvore) sempre será um Blob. Na prática isso quer dizer que o Git não versiona pastas vazias. A &lt;strong&gt;tree&lt;/strong&gt; só vai existir se existir alguma referência para um arquivo dentro dessa pasta.&lt;/p&gt;
+&lt;figure&gt;
+	&lt;blockquote&gt;
+		&lt;p&gt;Os commits são essencialmente referências para novas árvores. Sempre que alteramos algum arquivo, adicionamos um arquivo diferente ou renomeamos uma pasta também estamos reorganizando essa árvore de referências.&lt;/p&gt;
+	&lt;/blockquote&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;https://git-scm.com/book/en/v2/images/data-model-3.png&quot; alt=&quot;Documentação do Git&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Conforme é mostrado na figura apresentada no início do artigo, estamos sempre gerando novas árvores a cada commit. Como estamos trabalhando em um sistema que utiliza funções determinísticas onde qualquer mínima alteração já torna a estrutura diferente, sempre estamos recriando novas ramificações dentre as múltiplas possíveis versões do nossos arquivos. Fez mais sentido agora o nome &lt;strong&gt;branch&lt;/strong&gt;, não?&lt;/p&gt;
+&lt;p&gt;É interessante saber também que o git possui um sistema de &lt;strong&gt;garbage-collector&lt;/strong&gt;. O objetivo é remover arquivos desnecessários de branches antigos que já não fazem mais sentido no repositório. Mas como o Git avalia isso? &lt;/p&gt;
+&lt;p&gt;Como é uma estrutura de árvore, ao executar o comando &lt;code class=&quot;language-text&quot;&gt;git gc --prune&lt;/code&gt; por exemplo, o git varre as árvores de versionamento e encontra branches que não tem relação mais com nenhum galho dessa árvore, ou que já está diluido na mesma devido a um merge.&lt;/p&gt;
+&lt;h2 id=&quot;um-pouco-de-imutabilidade&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#um-pouco-de-imutabilidade&quot; aria-label=&quot;um pouco de imutabilidade permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Um pouco de imutabilidade&lt;/h2&gt;
+&lt;p&gt;Se você já viu algum conteúdo sobre programação funcional já deve ter lido a palavra &lt;strong&gt;imutabilidade&lt;/strong&gt;. A princípio quem trabalha com linguagens que não suportam nativamente isso acha o conceito um pouco estranho. &lt;em&gt;Se eu programo abstrações como classes, interfaces e funções genéricas porque seria interessante não ter variáveis?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/XEo7YJHUeplXa/giphy.gif&quot; alt=&quot;cena famosa que um guarda pede calma&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Calma, não é exatamente disso que imutabilidade trata. Na verdade, o conceito de imutabilidade é sobre deixar acessível um determinado valor mesmo que a sua referência direta tenha mudado. E sobre deixar um valor específico ainda acessível para computações que precisem enxergar aquele valor futuramente.&lt;/p&gt;
+&lt;p&gt;Na prática isso quer dizer o quê? &lt;/p&gt;
+&lt;p&gt;Os comandos que existem para alteração de commits como &lt;strong&gt;git rebase&lt;/strong&gt; ou &lt;strong&gt;git ammend&lt;/strong&gt; reescrevem commits, e não os altera diretamente. Ao reescrever um novo commit estamos definindo novos atributos como: timestamp, novo autor ou novas alterações nos &lt;strong&gt;blobs&lt;/strong&gt; e por consequências nas &lt;strong&gt;trees&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Não estamos fazendo uma alteração clássica de valor de uma variável como na programação, mas sim reescrevendo uma nova referência e preservando a antiga. Se essa estrutura não fosse imutável a cada vez que fizessemos um rebase mudaríamos também todas as referências de todos os outros branches no repositório que conhecem aqueles mesmos arquivos.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Thanks Imutabilidade&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;para-saber-mais&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#para-saber-mais&quot; aria-label=&quot;para saber mais permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Para saber mais&lt;/h2&gt;
+&lt;p&gt;Tem bem mais conteúdo sobre como funciona o git internamente como: Branchs, Tags, Merge vs Rebase, as três áreas do Git, Fast-Foward, HEAD..Prometo trazer isso em futuros artigos.&lt;/p&gt;
+&lt;p&gt;Deixo algumas recomendações de conteúdo caso você queira entender mais a fundo as referências de estudo que existem nesse artigo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://git-scm.com/book/en/v2&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;O livro Git PRO - Gratuito online&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=6Czd1Yetaac&amp;#x26;t=10s&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Vídeo do Fabio Akita - Entendendo GIT | (não é um tutorial!)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=nHkLxts9Mu4&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Vídeo do Paolo Perrota explicando como o Git funciona&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.pluralsight.com/courses/how-git-works&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Curso How Git Works - Pluralsight&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;See you later o/&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Every Software Developer is a Potential Writer]]></title><description><![CDATA[Do you have a blog? do you write articles? If you are a software developer I think you have a strong potential to be a good writer.]]></description><link>https://julianogtz.github.io/my-personal-blog//posts/every-software-developer-is-a-potential-writer</link><guid isPermaLink="false">https://julianogtz.github.io/my-personal-blog//posts/every-software-developer-is-a-potential-writer</guid><pubDate>Sat, 12 Sep 2020 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-personal-blog/static/3858221dacd0df28196c1ebcce2a13b1/7e35d/summerios.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIDBP/EABYBAQEBAAAAAAAAAAAAAAAAAAMAAf/aAAwDAQACEAMQAAAB00nQGQQy/8QAGRAAAwADAAAAAAAAAAAAAAAAAAECEBEh/9oACAEBAAEFApzJsb7/AP/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/AVf/xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAaEAACAgMAAAAAAAAAAAAAAAAAARAhMVGB/9oACAEBAAE/IcUPheh6HCf/2gAMAwEAAgADAAAAEAM//8QAFxEBAAMAAAAAAAAAAAAAAAAAAAERMf/aAAgBAwEBPxCdU//EABYRAQEBAAAAAAAAAAAAAAAAAAARQf/aAAgBAgEBPxDFP//EABsQAAMAAgMAAAAAAAAAAAAAAAABESFRQWGR/9oACAEBAAE/EFSdyLXYLTwztjoWxic62ZFvp//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/my-personal-blog/static/3858221dacd0df28196c1ebcce2a13b1/8ac56/summerios.webp 240w,
+/my-personal-blog/static/3858221dacd0df28196c1ebcce2a13b1/d3be9/summerios.webp 480w,
+/my-personal-blog/static/3858221dacd0df28196c1ebcce2a13b1/e46b2/summerios.webp 960w,
+/my-personal-blog/static/3858221dacd0df28196c1ebcce2a13b1/f992d/summerios.webp 1440w,
+/my-personal-blog/static/3858221dacd0df28196c1ebcce2a13b1/eaa3b/summerios.webp 1728w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/my-personal-blog/static/3858221dacd0df28196c1ebcce2a13b1/09b79/summerios.jpg 240w,
+/my-personal-blog/static/3858221dacd0df28196c1ebcce2a13b1/7cc5e/summerios.jpg 480w,
+/my-personal-blog/static/3858221dacd0df28196c1ebcce2a13b1/6a068/summerios.jpg 960w,
+/my-personal-blog/static/3858221dacd0df28196c1ebcce2a13b1/644c5/summerios.jpg 1440w,
+/my-personal-blog/static/3858221dacd0df28196c1ebcce2a13b1/7e35d/summerios.jpg 1728w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/my-personal-blog/static/3858221dacd0df28196c1ebcce2a13b1/6a068/summerios.jpg&quot;
+            alt=&quot;Cuneiform script created by the Sumerians around 3,500 B.C. - Source: InfoEscola&quot;
+            title=&quot;Cuneiform script created by the Sumerians around 3,500 B.C. - Source: InfoEscola&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;em&gt;The Cuneiform script created by the Sumerians around 3,500 BC - Source: &lt;a href=&quot;https://www.infoescola.com/historia/sumerios/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;InfoEscola&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Hello, Welcome&lt;/strong&gt;. This is the pilot post of my blog, the first article of many that I’m going to post here :)&lt;/p&gt;
+&lt;p&gt;I decided as the first subject to address the main motivation of the Blog: &lt;strong&gt;Transmitting knowledge through writing.&lt;/strong&gt; This is one of the points that help me to evolve personally and professionally and I’m going to explain why.&lt;/p&gt;
+&lt;h2 id=&quot;why-every-programmer-is-a-potential-writer&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#why-every-programmer-is-a-potential-writer&quot; aria-label=&quot;why every programmer is a potential writer permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Why Every Programmer is a Potential Writer&lt;/h2&gt;
+&lt;p&gt;I like to think that just as the Sumerians in the ancient Mesopotamian civilization (present-day Iraq) revolutionized the way society transmitted knowledge &lt;strong&gt;through the invention of writing&lt;/strong&gt;, &lt;strong&gt;programmers are also revolutionizing writing almost like the scribes of our time&lt;/strong&gt;. With the inevitable insertion of technology in all areas of society, those who are programming are synthesizing in code the problems, solutions, desires and limitations that we are currently living.&lt;/p&gt;
+&lt;figure&gt;
+	&lt;blockquote&gt;
+		&lt;p&gt;“With great power comes great responsibility&quot;&lt;/p&gt;
+		&lt;footer&gt;
+			&lt;cite&gt;— Stan Lee&lt;/cite&gt;
+		&lt;/footer&gt;
+	&lt;/blockquote&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;This is not an easy assignment&lt;/strong&gt;. Whether naming variables, functions, classes, methods, or describing a pull-request, I’m always doing the exercise of transmitting an idea, or I’m reading a code snippet to understand someone else’s idea.&lt;/p&gt;
+&lt;p&gt;How &lt;a href=&quot;https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship-ebook/dp/B001GSTOAM/ref=asc_df_B001GSTOAM/?tag=googleshopp00-20&amp;#x26;linkCode=df0&amp;#x26;hvadid=379765265654&amp;#x26;hvpos=&amp;#x26;hvnetw=g&amp;#x26;hvrand=2551010271922584819&amp;#x26;hvpone=&amp;#x26;hvptwo=&amp;#x26;hvqmt=&amp;#x26;hvdev=c&amp;#x26;hvdvcmdl=&amp;#x26;hvlocint=&amp;#x26;hvlocphy=1001773&amp;#x26;hvtargid=pla-406130706465&amp;#x26;psc=1&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Clean Code&lt;/a&gt; address, as a text that is not clear a code that is not expressive sometimes almost &lt;strong&gt;needs a work of paleontology to understand what is happening under the hood&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-personal-blog/static/e5187252a5a6ad7ba0c2b8dc868039ac/41099/wtfm.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 94.16666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAATABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAEFAv/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAd6IdAzAUH//xAAYEAADAQEAAAAAAAAAAAAAAAAAAhMBIP/aAAgBAQABBQLnCrlXKuf/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AR//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AR//xAAWEAEBAQAAAAAAAAAAAAAAAAAAMSD/2gAIAQEABj8C1VV//8QAHRAAAgEEAwAAAAAAAAAAAAAAAAEhETFh8HGB8f/aAAgBAQABPyGmTsXJIlBYLwo0JG1I/9oADAMBAAIAAwAAABDzxwD/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EB//xAAfEAACAgEEAwAAAAAAAAAAAAAAARExIUFRYfBxgZH/2gAIAQEAAT8QyeIDWL+hGlqIRzMpv4MaRoq3KRuMO3AkKvbghrq8H//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/my-personal-blog/static/e5187252a5a6ad7ba0c2b8dc868039ac/8ac56/wtfm.webp 240w,
+/my-personal-blog/static/e5187252a5a6ad7ba0c2b8dc868039ac/d3be9/wtfm.webp 480w,
+/my-personal-blog/static/e5187252a5a6ad7ba0c2b8dc868039ac/b0a15/wtfm.webp 500w&quot;
+              sizes=&quot;(max-width: 500px) 100vw, 500px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/my-personal-blog/static/e5187252a5a6ad7ba0c2b8dc868039ac/09b79/wtfm.jpg 240w,
+/my-personal-blog/static/e5187252a5a6ad7ba0c2b8dc868039ac/7cc5e/wtfm.jpg 480w,
+/my-personal-blog/static/e5187252a5a6ad7ba0c2b8dc868039ac/41099/wtfm.jpg 500w&quot;
+            sizes=&quot;(max-width: 500px) 100vw, 500px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/my-personal-blog/static/e5187252a5a6ad7ba0c2b8dc868039ac/41099/wtfm.jpg&quot;
+            alt=&quot;The number of wtfs per minute says a lot about the quality of the code&quot;
+            title=&quot;The number of wtfs per minute says a lot about the quality of the code&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;blockquote&gt;
+		&lt;p&gt;The ability to write code that: reveals purpose, uses business domain nomenclatures, avoids misinformation, makes significant distinctions, and has searchable names (among many other quality factors) comes with lots of practice and study over years of experience.&lt;/p&gt;
+	&lt;/blockquote&gt;
+&lt;/figure&gt;
+&lt;h3 id=&quot;remember-that-your-code-should-be-clear-to-you-and-your-coworkers-code-is-not-a-diary&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#remember-that-your-code-should-be-clear-to-you-and-your-coworkers-code-is-not-a-diary&quot; aria-label=&quot;remember that your code should be clear to you and your coworkers code is not a diary permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Remember that your code should be clear to you and your coworkers. Code is not a diary.&lt;/h3&gt;
+&lt;p&gt;The exercise of putting myself in the shoes of someone who will read and try to interpret helps me find good points for improvement in everything I develop, whether that person is a coworker, friend, teacher, or &lt;strong&gt;my future self&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;software-development-is-not-just-writing-code&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#software-development-is-not-just-writing-code&quot; aria-label=&quot;software development is not just writing code permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Software development is not just writing code&lt;/h2&gt;
+&lt;p&gt;Programming is a big challenge and requires a lot of technical studies to clearly express your idea using the best resources of a given language. &lt;em&gt;But is programming just coding?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In my opinion, &lt;strong&gt;no&lt;/strong&gt;. Software development is not only about programming, &lt;strong&gt;but it is also about understanding the problem outside the computer bits&lt;/strong&gt;. &lt;/p&gt;
+&lt;p&gt;To code better you need to have a broad vision about the reason that you’re coding like: &lt;strong&gt;the business problem&lt;/strong&gt;, &lt;strong&gt;the stakeholder’s motivation&lt;/strong&gt;, &lt;strong&gt;what value this development is bringing?&lt;/strong&gt;, etc.&lt;/p&gt;
+&lt;p&gt;Talking a little bit about set theory, the programmer is at the &lt;strong&gt;intersection&lt;/strong&gt; between the concrete world of business and the abstract world of software implementations.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-personal-blog/static/9186734642a58679a76b160c1bf8dff1/d0c2f/developer-intersection.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 40.416666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABLklEQVQoz1WS2w6CQAxE+f+v8pEYEhIggHJTvKCCykUUnmpOkyX6UFpmZ2en3bX6vpeu6+T1esnj8ZC6ruX5fMowDBrU9/tdo21b5cE3GHvggREWH4DT6SRlWUpVVbLf7zVfLhcpikJxAvx8PmsmwHa7nRyPx0XUooBE4C5NU3VF3mw2Mk2TvN9vzXTjOI66mudZPp+PBoLsx70KHg4HdeO6rqxWKwmCQJIkkTzP1SHi/GdZpo6owzAU3/eVgwHc/gnS8nq9Ftu2xfM8ieNYycztdrupe/J2u9VDWI+iSA9gln+CzAvb1+tVF2iJTWxAcBxHJSNKF/Bo1YwBUQ5Da7kUZoCYGTojQJiaDszF0B6H/16KEdNL+X02kJumWZ4Na+C0BEZtMJyDm+eFBmtfVIVTCXS5WBUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/my-personal-blog/static/9186734642a58679a76b160c1bf8dff1/8ac56/developer-intersection.webp 240w,
+/my-personal-blog/static/9186734642a58679a76b160c1bf8dff1/d3be9/developer-intersection.webp 480w,
+/my-personal-blog/static/9186734642a58679a76b160c1bf8dff1/e46b2/developer-intersection.webp 960w,
+/my-personal-blog/static/9186734642a58679a76b160c1bf8dff1/66be3/developer-intersection.webp 1362w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/my-personal-blog/static/9186734642a58679a76b160c1bf8dff1/8ff5a/developer-intersection.png 240w,
+/my-personal-blog/static/9186734642a58679a76b160c1bf8dff1/e85cb/developer-intersection.png 480w,
+/my-personal-blog/static/9186734642a58679a76b160c1bf8dff1/d9199/developer-intersection.png 960w,
+/my-personal-blog/static/9186734642a58679a76b160c1bf8dff1/d0c2f/developer-intersection.png 1362w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/my-personal-blog/static/9186734642a58679a76b160c1bf8dff1/d9199/developer-intersection.png&quot;
+            alt=&quot;Intersection between software developer with the world of business and technology&quot;
+            title=&quot;Intersection between software developer with the world of business and technology&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Part of my job as a software developer is to transmit the ideas that round development in a clear and concrete way to all &lt;em&gt;stakeholders&lt;/em&gt;. The problem understanding and good communication optimize the required effort by everyone involved.&lt;/p&gt;
+&lt;h2 id=&quot;how-can-i-improve-my-writing-skill&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#how-can-i-improve-my-writing-skill&quot; aria-label=&quot;how can i improve my writing skill permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How can I improve my writing skill?&lt;/h2&gt;
+&lt;p&gt;Often as a developer, I need to synthesize complex and abstract content into &lt;strong&gt;concrete&lt;/strong&gt; and &lt;strong&gt;palpable&lt;/strong&gt; concepts. How to explain it?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/nuuS1IlKqd2dq/giphy.gif&quot; alt=&quot;Explain to me like I&amp;#x27;m four years old&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;visual-elements-and-analogies-buzzwords&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#visual-elements-and-analogies-buzzwords&quot; aria-label=&quot;visual elements and analogies buzzwords permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Visual Elements and Analogies&gt; Buzzwords&lt;/h3&gt;
+&lt;p&gt;In general software developers have their own dialect full of acronyms such as: &lt;em&gt;Docker&lt;/em&gt;, &lt;em&gt;Kubernetes&lt;/em&gt;, &lt;em&gt;Git&lt;/em&gt;, &lt;em&gt;Deploy&lt;/em&gt;, &lt;em&gt;ETL&lt;/em&gt;, among many others. This communication is extremely efficient among the initiates of that language but &lt;strong&gt;it is extremely complex for those who are not&lt;/strong&gt;. It is very important to know who your target audience is and if they are familiar with these terms.&lt;/p&gt;
+&lt;p&gt;Analogies are a great alternative to help materialize complex concepts. They are extremely effective in familiarizing strange terms by opening a parallel with something in the person’s reality.&lt;/p&gt;
+&lt;figure&gt;
+	&lt;blockquote&gt;
+		&lt;p&gt;Talking about costs, cloud computing is like connecting to a central power grid instead of producing my own energy. I just need to pay for what I consume and I don&apos;t worry directly about how the energy is being distributed&lt;/p&gt;
+	&lt;/blockquote&gt;
+&lt;/figure&gt;
+&lt;p&gt;Visual elements like diagrams are a very powerful tool for presenting complex ideas in an agnostic way of technology. Some solutions like &lt;a href=&quot;https://miro.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Miro&lt;/a&gt; provide a wide range of diagrams and tools to make an interactive presentation.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-personal-blog/static/82035933a5692828bd8a74d2b29af5e9/7e111/flow.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 54.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAByklEQVQoz6WSz2sTQRTH9+DF/0QQRNCb/4UHPaj4P5SCiCB4FUQQehA9qKD0UnrRovVkEIRUabeWNNXaJG3S7m42u7M7sz+S1HycmTRarKLiwGMG3nfe+36/7zlpmvKnSJLk+/27mOSd/y309wUPgcwtpSRTklxHJlOyTNHvlwwGpX1PcI55xFFMrxchhLAJcRAWZPKxIPQDKmstZiqbzLttarUvXDh/jbOnr/DieYX9/b7FWYbwFXNsN919mOvumdSsNFOl2G7vEemm9Z2AhbUO77YC2h2PO7efMD11l6XqR8qysIQcIRIe3J/jxvUZ3lY+0OoKFmv606ZHNxKoRoOyWkWFIbmWNswlpW6mtHQYWSLjYgeS4zjm6uWbnDxxkUcP51lu+tx785nZ900abQ+54jJ4tUjW6Vi2Mk10jH02RY1/h722kvMioyhy8jwbg/QAlDQflJXtNXeItJygF9PyI3bDGENkXfu4sryO5wV2aHbKP4/9V+vgBSHBrsdrt8mtl3UeL7VwVz9x5tQljh87x7OnC4xGQ9vEOVooPbJbhqXSDIyn20HEnmUo2Khvsepu4PvdHwz/ZbGNd5ktPs4bm8p+YW2aYL8BJy4s6Y6CpBEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/my-personal-blog/static/82035933a5692828bd8a74d2b29af5e9/8ac56/flow.webp 240w,
+/my-personal-blog/static/82035933a5692828bd8a74d2b29af5e9/d3be9/flow.webp 480w,
+/my-personal-blog/static/82035933a5692828bd8a74d2b29af5e9/e46b2/flow.webp 960w,
+/my-personal-blog/static/82035933a5692828bd8a74d2b29af5e9/f992d/flow.webp 1440w,
+/my-personal-blog/static/82035933a5692828bd8a74d2b29af5e9/8713d/flow.webp 1627w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/my-personal-blog/static/82035933a5692828bd8a74d2b29af5e9/8ff5a/flow.png 240w,
+/my-personal-blog/static/82035933a5692828bd8a74d2b29af5e9/e85cb/flow.png 480w,
+/my-personal-blog/static/82035933a5692828bd8a74d2b29af5e9/d9199/flow.png 960w,
+/my-personal-blog/static/82035933a5692828bd8a74d2b29af5e9/07a9c/flow.png 1440w,
+/my-personal-blog/static/82035933a5692828bd8a74d2b29af5e9/7e111/flow.png 1627w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/my-personal-blog/static/82035933a5692828bd8a74d2b29af5e9/d9199/flow.png&quot;
+            alt=&quot;Diagram example made on Miro&quot;
+            title=&quot;Diagram example made on Miro&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;em&gt;Diagram example made on &lt;a href=&quot;https://miro.com&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Miro&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;blockquote&gt;
+		&lt;p&gt;As incredible as your text seems, it&apos;s very important to ask for feedback to ensure that your idea was well understood.&lt;/p&gt;
+	&lt;/blockquote&gt;
+&lt;/figure&gt;
+&lt;h3 id=&quot;reading&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#reading&quot; aria-label=&quot;reading permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Reading&lt;/h3&gt;
+&lt;p&gt;This is the best tip I can give to someone who wants to write well: &lt;strong&gt;Read a lot&lt;/strong&gt;! &lt;/p&gt;
+&lt;p&gt;Reading books and articles from different subjects gives to me a lot of intellectual input to transmit ideas with different approaches. I usually try to add to my utility belt every analogy or example that makes me understand some concept.&lt;/p&gt;
+&lt;h2 id=&quot;writing-well-is-even-more-valuable-in-distributed-teams&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#writing-well-is-even-more-valuable-in-distributed-teams&quot; aria-label=&quot;writing well is even more valuable in distributed teams permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Writing well is even more valuable in distributed teams&lt;/h2&gt;
+&lt;p&gt;In times of remote work in which we have distributed teams, there is a natural tendency for many meetings to align assignments and expectations, especially in places where remote work was far from being a reality.&lt;/p&gt;
+&lt;p&gt;Without face-to-face contact we lose some elements of communication such as body language, but at the same time we have more opportunities to improve our written communication. A very concise text can save you from long meetings, long contextualizations and &lt;strong&gt;can save a lot of your focus time in the day&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Briefly writing the description of the meeting for the participants or stressing some issues/hypotheses asynchronously for an eventual meeting to be more productive has been very effective for me.&lt;/p&gt;
+&lt;h2 id=&quot;writing-better--coding-better&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#writing-better--coding-better&quot; aria-label=&quot;writing better  coding better permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Writing better = coding better&lt;/h2&gt;
+&lt;p&gt;I realize that as I’m trying to improve my writing skill I’m also improving my ability to deliver software and solve problems. The exercise of &lt;strong&gt;writing&lt;/strong&gt; and &lt;strong&gt;reading&lt;/strong&gt; increasingly enriches my mental map of how to develop solutions, whether coding or understanding problems.&lt;/p&gt;
+&lt;p&gt;Not all writing needs to be in articles, blogs and magazines. you can start at:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In your team’s communication channels&lt;/li&gt;
+&lt;li&gt;Pull-request descriptions &lt;/li&gt;
+&lt;li&gt;Commit messages&lt;/li&gt;
+&lt;li&gt;In the README of the project you are working on.&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;A polemic post on twitter&lt;/del&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;going-further&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#going-further&quot; aria-label=&quot;going further permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Going Further&lt;/h2&gt;
+&lt;p&gt;I hope you enjoyed this first article because I really enjoyed writing it. I’m leaving here some interesting links that I’ve used as a basis for this article. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://basecamp.com/guides/how-we-communicate&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;BaseCamp Internal Communication Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Writers-Journey-Mythic-Structure-3rd/dp/193290736X&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;The Writers Journey: Mythic Structure for Writers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;See you later o/&lt;/em&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
